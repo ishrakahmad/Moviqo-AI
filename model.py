@@ -1,5 +1,7 @@
 import pandas as pd
 import ast
+import pickle
+import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -140,7 +142,7 @@ vectors = cv.fit_transform(new_df["tags"]).toarray()
 print("\nVector Shape:")
 print(vectors.shape)
 
-similarity = cosine_similarity(vectors)
+similarity = cosine_similarity(vectors).astype(np.float32)
 
 print("\nSimilarity Matrix Shape:")
 print(similarity.shape)
@@ -163,7 +165,14 @@ def recommend(movie):
 
         print(new_df.iloc[i[0]].title)
 
-recommend("Avatar")        
+recommend("Avatar") 
+# Save processed dataframe
+pickle.dump(new_df, open("models/movies.pkl", "wb"))
+
+# Save similarity matrix
+pickle.dump(similarity, open("models/similarity.pkl", "wb"))
+
+print("\nModels saved successfully!")       
 
 
 # Check Output
