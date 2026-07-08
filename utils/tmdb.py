@@ -1,10 +1,7 @@
-import os
+import streamlit as st
 import requests
-from dotenv import load_dotenv
 
-load_dotenv()
-
-API_KEY = os.getenv("TMDB_API_KEY")
+API_KEY = st.secrets["TMDB_API_KEY"]
 
 
 # Search Movie
