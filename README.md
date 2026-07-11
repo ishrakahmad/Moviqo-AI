@@ -7,7 +7,7 @@ Search movies in **English, Hindi, Tamil, Telugu, Korean, Japanese** and many ot
 
 ## 🚀 Live Demo
 
-Coming Soon...
+https://moviqo.streamlit.app/
 
 ---
 
